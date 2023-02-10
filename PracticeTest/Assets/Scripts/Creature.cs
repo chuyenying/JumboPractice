@@ -2,63 +2,50 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Creature    
+public class ModelManager:MonoBehaviour
 {
-    protected string name;
-    protected int hp;
-    protected int hurt;
-    
-    
+    public Creature New_Creature()
+    {
+        var creature = new Creature();
+        return creature;
+    }
+
+}
+
+[CreateAssetMenu(fileName ="New Data" , menuName ="Creature/Create Creature" , order =1)]
+public class Creature : ScriptableObject
+{
+    [SerializeField] private string name;
+    [SerializeField] private int hp;
+    [SerializeField] int hurt;
+
+    /*
+    public string Name
+    {
+        get { return name; }
+        set { name = value; }
+    }
+
+    public int HP
+    {
+        get { return hp; }
+        set { hp = value; }
+    }
+
+    public int Hurt
+    {
+        get { return hurt; }
+        set { hurt = value; }
+    }
+
     private int test;
     public int Test
     {
         get { return test; }
         //set { test = value; }
     }
-    private void Start()
-    {
-        set();
-    }
-
-    public virtual void set()
-    {
-        name = "";
-        hp = 0;
-        hurt = 0;
-    }
-
-    public int getHurt()
-    {
-        return hurt;
-    }
-
-    public string getName()
-    {
-        return name;
-    }
-
-    public int getHp()
-    {
-        return hp;
-    }
-
-    public void TalkButton()
-    {
-        Debug.Log($"我是{getName()} 我有{getHp()}點HP");
-    }
-
-    public void Hurt()
-    {
-        hp -= hurt;
-
-        if (hp <= 0)
-        {
-            Debug.Log($"{getName()}受傷了!，扣了{getHurt()}點HP，死掉ㄌ");
-        }
-        else
-        {
-            Debug.Log($"{getName()}受傷了!，扣了{getHurt()}點HP，還剩{getHp()}點HP");
-        }
-    }
     
+    */
 }
+
+

@@ -1,26 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Controller:MonoBehaviour
+public class Controller : MonoBehaviour
 {
-    private Button Player_Talk;
+    [SerializeField] private ButtonView buttonView;
 
-    private void Awake()
+    public void CallFunc_Talk()
     {
-        Player_Talk = gameObject.GetComponent<ButtonView>().Player_Talk;
+        buttonView.Talk();
     }
-    private void Start()
-    {
-        
-        Player_Talk.onClick.AddListener(test);
-    }
-
-    private void Update()
-    {
-       
-    }
-
-    public void test() { Debug.Log("test"); }
 }
