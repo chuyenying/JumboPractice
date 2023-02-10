@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Creature : MonoBehaviour
+public class Creature    
 {
-    [SerializeField] private string name;
+    protected string name;
     protected int hp;
     protected int hurt;
+    
+    
     private int test;
     public int Test
     {
@@ -58,4 +60,5 @@ public class Creature : MonoBehaviour
             Debug.Log($"{getName()}受傷了!，扣了{getHurt()}點HP，還剩{getHp()}點HP");
         }
     }
+    
 }

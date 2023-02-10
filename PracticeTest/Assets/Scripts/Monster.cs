@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Monster : Creature, Interface.I_Attack
+public class Monster : Creature, I_Attack
 {
+
     public override void set()
     {
         name = "怪物";

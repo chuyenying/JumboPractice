@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class people : Creature , Interface.I_Conversaction
+public class People : Creature, I_Conversaction
 {
 
     public override void set()

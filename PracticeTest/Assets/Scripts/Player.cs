@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player : Creature ,Interface.I_Attack, Interface.I_Conversaction
+public class Player : Creature, I_Attack, I_Conversaction 
 {
 
     public override void set()
