@@ -3,38 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+//controller 跟 model 抓取資料 --> model邏輯判斷結束回傳資料{確認是哪個生物、取得生物的資料、邏輯運算得到一個輸出結果} -->由controller傳一個string給view
 public class Controller : MonoBehaviour
 {
-    string TalkParameter;
-    string ButtonName;
+    public ModelController modelController;
+    public ButtonView buttonView;
 
-    public void GetCurrentButtonName()
+    public void CallFunc_Talk(string creature)
     {
-        ButtonName = "";
-        TalkParameter = "";
-        ButtonName = EventSystem.current.currentSelectedGameObject.name;
-        TalkParameter = ButtonName[0].ToString() + ButtonName[1].ToString();
+        string DebugLog_View = modelController.Talk(creature);
+        buttonView.Output(DebugLog_View);
     }
-
-    public void CallFunc_Talk()
+    public void CallFunc_Hurt(string creature)
     {
-        GetCurrentButtonName();
-        GameObject.Find("ButtonView").GetComponent<ButtonView>().Talk(TalkParameter);
+        string DebugLog_View = modelController.Hurt(creature);
+        buttonView.Output(DebugLog_View);
     }
-
-    public void CallFunc_Hurt()
+    public void CallFunc_Attack(string creature)
     {
-        GetCurrentButtonName();
-        GameObject.Find("ButtonView").GetComponent<ButtonView>().Hurt(TalkParameter);
+        string DebugLog_View = modelController.Attack(creature);
+        buttonView.Output(DebugLog_View);
     }
-    public void CallFunc_Attack()
+    public void CallFunc_Conversaction(string creature)
     {
-        GetCurrentButtonName();
-        GameObject.Find("ButtonView").GetComponent<ButtonView>().Attack(TalkParameter);
-    }
-    public void CallFunc_Conversaction()
-    {
-        GetCurrentButtonName();
-        GameObject.Find("ButtonView").GetComponent<ButtonView>().Conversaction(TalkParameter);
+        string DebugLog_View = modelController.Conversaction(creature);
+        buttonView.Output(DebugLog_View);
     }
 }

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u6751\u6C11"
   hp: 8
-  hurt: 1
+  attack: 1
