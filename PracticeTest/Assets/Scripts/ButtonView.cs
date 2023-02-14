@@ -61,15 +61,11 @@ public class ButtonView : MonoBehaviour // Reference to UI
     {
         if (ButtonName == "玩家")
         {
-            Debug.Log($"{Player.name}發起了對話");
+            Debug.Log($"那邊的{People.name} 目前血量剩下{People.hp}點HP");
         }
         else if (ButtonName == "村民")
         {
-            Debug.Log($"{People.name}發起了對話");
-        }
-        else if (ButtonName == "怪物")
-        {
-            Debug.Log($"{Monster.name}發起了對話");
+            Debug.Log($"那邊的{Player.name} 目前血量剩下{Player.hp}點HP");
         }
     }
 }
