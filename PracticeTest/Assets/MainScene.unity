@@ -663,8 +663,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Attack
+      - m_Target: {fileID: 1683191154}
+        m_MethodName: CallFunc_Attack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -827,7 +827,7 @@ GameObject:
   - component: {fileID: 593813884}
   - component: {fileID: 593813883}
   m_Layer: 5
-  m_Name: "\u8AAA\u8A71-Button"
+  m_Name: "\u6751\u6C11\u8AAA\u8A71-Button"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -893,8 +893,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: TalkButton
+      - m_Target: {fileID: 1683191154}
+        m_MethodName: CallFunc_Talk
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1022,8 +1022,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Conversaction
+      - m_Target: {fileID: 1683191154}
+        m_MethodName: CallFunc_Conversaction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1454,8 +1454,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Hurt
+      - m_Target: {fileID: 1683191154}
+        m_MethodName: CallFunc_Hurt
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1721,7 +1721,7 @@ GameObject:
   - component: {fileID: 1062844028}
   - component: {fileID: 1062844027}
   m_Layer: 5
-  m_Name: "\u53D7\u50B7-Button"
+  m_Name: "\u602A\u7269\u53D7\u50B7-Button"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1787,8 +1787,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Hurt
+      - m_Target: {fileID: 1683191154}
+        m_MethodName: CallFunc_Hurt
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2008,7 +2008,7 @@ GameObject:
   - component: {fileID: 1141269547}
   - component: {fileID: 1141269546}
   m_Layer: 5
-  m_Name: "\u653B\u64CA-Button"
+  m_Name: "\u602A\u7269\u653B\u64CA-Button"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2074,8 +2074,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Attack
+      - m_Target: {fileID: 1683191154}
+        m_MethodName: CallFunc_Attack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2216,7 +2216,7 @@ GameObject:
   - component: {fileID: 1512759346}
   - component: {fileID: 1512759345}
   m_Layer: 5
-  m_Name: "\u5C0D\u8A71-Button"
+  m_Name: "\u6751\u6C11\u5C0D\u8A71-Button"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2282,8 +2282,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Conversaction
+      - m_Target: {fileID: 1683191154}
+        m_MethodName: CallFunc_Conversaction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2345,7 +2345,7 @@ GameObject:
   - component: {fileID: 1528475288}
   - component: {fileID: 1528475287}
   m_Layer: 5
-  m_Name: "\u53D7\u50B7-Button"
+  m_Name: "\u6751\u6C11\u53D7\u50B7-Button"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2411,8 +2411,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Hurt
+      - m_Target: {fileID: 1683191154}
+        m_MethodName: CallFunc_Hurt
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2569,7 +2569,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de2b66d5afcb0b7438c320b37641bccc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonView: {fileID: 1024134995}
 --- !u!4 &1683191155
 Transform:
   m_ObjectHideFlags: 0
@@ -2887,7 +2886,7 @@ GameObject:
   - component: {fileID: 2127212161}
   - component: {fileID: 2127212160}
   m_Layer: 5
-  m_Name: "\u8AAA\u8A71-Button"
+  m_Name: "\u602A\u7269\u8AAA\u8A71-Button"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2953,8 +2952,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: TalkButton
+      - m_Target: {fileID: 1683191154}
+        m_MethodName: CallFunc_Talk
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
