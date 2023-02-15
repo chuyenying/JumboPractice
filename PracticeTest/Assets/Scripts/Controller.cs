@@ -6,10 +6,19 @@ using UnityEngine.EventSystems;
 //controller 跟 model 抓取資料 --> model邏輯判斷結束回傳資料{確認是哪個生物、取得生物的資料、邏輯運算得到一個輸出結果} -->由controller傳一個string給view
 public class Controller : MonoBehaviour
 {
-    public ModelController modelController;
-    public ButtonView buttonView;
+    [SerializeField] private ModelController modelController;
+    [SerializeField] private ButtonView buttonView;
 
-    public void CallFunc_Talk(string creature)
+    private void Update()
+    {
+        if (buttonView.isTalk)
+        {
+            CallFunc_Talk(buttonView.creature);
+            buttonView.isTalk = false;
+        }
+    }
+
+    public void CallFunc_Talk(int creature)
     {
         string DebugLog_View = modelController.Talk(creature);
         buttonView.Output(DebugLog_View);

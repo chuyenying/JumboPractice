@@ -12,16 +12,16 @@ public class ModelController : MonoBehaviour
     {
         Player.hp = 10;
         People.hp = 8;
-        Monster.hp = 13;
+        Monster.hp = 12;
     }
 
-    public string Talk(string creature)
+    public string Talk(int creature)
     {
-        if (creature.Equals("玩家"))
+        if (creature.Equals(0))
         {
             return $"我是{Player.name} 我有{Player.hp}點HP";
         }
-        else if (creature == "村民")
+        else if (creature.Equals(1))
         {
             return $"我是{People.name} 我有{People.hp}點HP";
         }
