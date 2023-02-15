@@ -9,24 +9,15 @@ public class Controller : MonoBehaviour
     [SerializeField] private ModelController modelController;
     [SerializeField] private ButtonView buttonView;
 
-    private void Update()
-    {
-        if (buttonView.isTalk)
-        {
-            CallFunc_Talk(buttonView.creature);
-            buttonView.isTalk = false;
-        }
-    }
+    public event ButtonView.Creature_Delegate creature_Delegate;
 
     public void CallFunc_Talk(int creature)
     {
-        string DebugLog_View = modelController.Talk(creature);
-        buttonView.Output(DebugLog_View);
+        
     }
     public void CallFunc_Hurt(string creature)
     {
-        string DebugLog_View = modelController.Hurt(creature);
-        buttonView.Output(DebugLog_View);
+
     }
     public void CallFunc_Attack(string creature)
     {
