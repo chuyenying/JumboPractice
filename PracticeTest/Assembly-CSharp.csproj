@@ -60,11 +60,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\ButtonModel.cs" />
-    <Compile Include="Assets\Scripts\ButtonView.cs" />
-    <Compile Include="Assets\Scripts\Controller.cs" />
-    <Compile Include="Assets\Scripts\Creature.cs" />
-    <Compile Include="Assets\Scripts\ModelController.cs" />
+    <Compile Include="Assets\Scripts\MVC\ButtonView.cs" />
+    <Compile Include="Assets\Scripts\MVC\Controller.cs" />
+    <Compile Include="Assets\Scripts\MVC\Creature.cs" />
+    <Compile Include="Assets\Scripts\MVC\ModelController.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/JumboPractice/PracticeTest/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
