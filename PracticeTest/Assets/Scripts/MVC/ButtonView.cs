@@ -8,13 +8,10 @@ public class ButtonView : MonoBehaviour
     public delegate void TalkToController(int creature);
     public event TalkToController talk_Controller;
 
-    public delegate void HurtToController(int creature);
     public event TalkToController Hurt_Controller;
 
-    public delegate void AttackToController(int creature);
     public event TalkToController Attack_Controller;
 
-    public delegate void ConversactionToController(int creature);
     public event TalkToController Conversaction_Controller;
 
     [Header("Player")]
@@ -36,12 +33,10 @@ public class ButtonView : MonoBehaviour
 
     private void Start()
     {
-
         Player_Talk.onClick.AddListener(() => { Talk_OnClick(0); }); // 當按下玩家說話按鈕呼叫 OnClick func
         Player_Hurt.onClick.AddListener(() => { Hurt_OnClick(0); });
         Player_Attack.onClick.AddListener(() => { Attack_OnClick(0); });
         Player_Conversaction.onClick.AddListener(() => { Conversaction_OnClick(0); });
-
 
         People_Talk.onClick.AddListener(() => { Talk_OnClick(1); }); // 當按下玩家說話按鈕呼叫 OnClick func
         People_Hurt.onClick.AddListener(() => { Hurt_OnClick(1); });
@@ -50,7 +45,6 @@ public class ButtonView : MonoBehaviour
         Monster_Talk.onClick.AddListener(() => { Talk_OnClick(2); }); // 當按下玩家說話按鈕呼叫 OnClick func
         Monster_Hurt.onClick.AddListener(() => { Hurt_OnClick(2); });
         Monster_Attack.onClick.AddListener(() => { Attack_OnClick(2); });
-
     }
 
     public void Talk_OnClick(int creature)
