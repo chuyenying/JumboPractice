@@ -8,6 +8,7 @@ public class Creature :ScriptableObject
     public string name;
     public int hp;
     public int attack;
+    public int creature;
 }
 
 

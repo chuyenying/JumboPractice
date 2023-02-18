@@ -5,65 +5,40 @@ using UnityEngine.UI;
 
 public class ButtonView : MonoBehaviour
 {
-    public delegate void TalkToController(int creature);
-    public event TalkToController talk_Controller;
+    public delegate void TalkToController(GameObject creature);
+    public event TalkToController talk_Delegate;
 
-    public event TalkToController Hurt_Controller;
+    public event TalkToController Hurt_Delegate;
 
-    public event TalkToController Attack_Controller;
+    public event TalkToController Attack_Delegate;
 
-    public event TalkToController Conversaction_Controller;
+    public event TalkToController Conversaction_Delegate;
 
-    [Header("Player")]
-    [SerializeField] private Button Player_Talk;
-    [SerializeField] private Button Player_Hurt;
-    [SerializeField] private Button Player_Attack;
-    [SerializeField] private Button Player_Conversaction;
-
-    [Header("People")]
-    [SerializeField] private Button People_Talk;
-    [SerializeField] private Button People_Hurt;
-    [SerializeField] private Button People_Conversaction;
-
-    [Header("Monster")]
-    [SerializeField] private Button Monster_Talk;
-    [SerializeField] private Button Monster_Hurt;
-    [SerializeField] private Button Monster_Attack;
-
+    [SerializeField] private GameObject GameObjectPrefabPanel;  //Prefab
+    [SerializeField] private List<GameObject> PrefabPanel;      //Prefab Clone
+    [SerializeField] private GameObject Canvas;
 
     private void Start()
     {
-        Player_Talk.onClick.AddListener(() => { Talk_OnClick(0); }); // 當按下玩家說話按鈕呼叫 OnClick func
-        Player_Hurt.onClick.AddListener(() => { Hurt_OnClick(0); });
-        Player_Attack.onClick.AddListener(() => { Attack_OnClick(0); });
-        Player_Conversaction.onClick.AddListener(() => { Conversaction_OnClick(0); });
-
-        People_Talk.onClick.AddListener(() => { Talk_OnClick(1); }); // 當按下玩家說話按鈕呼叫 OnClick func
-        People_Hurt.onClick.AddListener(() => { Hurt_OnClick(1); });
-        People_Conversaction.onClick.AddListener(() => { Conversaction_OnClick(1); });
-
-        Monster_Talk.onClick.AddListener(() => { Talk_OnClick(2); }); // 當按下玩家說話按鈕呼叫 OnClick func
-        Monster_Hurt.onClick.AddListener(() => { Hurt_OnClick(2); });
-        Monster_Attack.onClick.AddListener(() => { Attack_OnClick(2); });
+        //for (int i=0 ; i< PrefabPanel.Count; i++)
+        //{
+        //    var buttons = PrefabPanel[i].GetComponent<PanelComponent>().buttons;
+        //    foreach (Button _button in buttons)
+        //    {
+        //        Debug.Log($"test{i}");
+        //        _button.onClick.AddListener(() => { talk_Delegate(PrefabPanel[i]); });
+        //    }
+        //}
     }
 
-    public void Talk_OnClick(int creature)
+    public void CreatePrefab(string creatureName, Vector3 position) //創建Panel跟排版
     {
-        talk_Controller(creature);  //觸發event
+        var PrefabPanel_clone = Instantiate(GameObjectPrefabPanel);
+        PrefabPanel_clone.GetComponent<PanelComponent>().PanelText.text = creatureName;
+        PrefabPanel_clone.transform.SetParent(Canvas.transform);
+        PrefabPanel_clone.transform.localPosition = position;
+        PrefabPanel.Add(PrefabPanel_clone);
     }
-    public void Hurt_OnClick(int creature)
-    {
-        Hurt_Controller(creature);
-    }
-    public void Attack_OnClick(int creature)
-    {
-        Attack_Controller(creature);
-    }
-    public void Conversaction_OnClick(int creature)
-    {
-        Conversaction_Controller(creature);
-    }
-
 
     public void Output(string DebugLog_View)
     {

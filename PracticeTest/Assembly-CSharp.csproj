@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\MVC\Controller.cs" />
     <Compile Include="Assets\Scripts\MVC\Creature.cs" />
     <Compile Include="Assets\Scripts\MVC\ModelController.cs" />
+    <Compile Include="Assets\Scripts\PanelComponent.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/JumboPractice/PracticeTest/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

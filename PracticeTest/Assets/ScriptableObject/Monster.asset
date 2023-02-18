@@ -15,3 +15,4 @@ MonoBehaviour:
   name: "\u602A\u7269"
   hp: 12
   attack: 3
+  creature: 2
