@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2119706919827541046
 RectTransform:
   m_ObjectHideFlags: 0
@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 2119706920334934646}
   - component: {fileID: 2119706920334934647}
   - component: {fileID: 2119706920334934640}
-  - component: {fileID: 7644972202547177373}
+  - component: {fileID: 7256291868155008913}
   m_Layer: 5
   m_Name: PrefabPanel
   m_TagString: Untagged
@@ -513,7 +513,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &7644972202547177373
+--- !u!114 &7256291868155008913
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

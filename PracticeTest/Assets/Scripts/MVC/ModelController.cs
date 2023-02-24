@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,23 +7,26 @@ public class ModelController : MonoBehaviour
 {
     [SerializeField] private List<Creature> creature;
 
-    public delegate void Model_Delegate(Creature creatureClass, Vector3 position);
-    public event Model_Delegate PlayerDelegate;
+    public Action<Creature> CreatePrefab_Delegate;
+    public Action<bool[]> TellViewToCloseWhichButton;
 
-    private void Start()
+    public void Init()
     {
-        CreateCreature(creature[0], new Vector3(-600, 0, 0));
-        CreateCreature(creature[1], new Vector3(0, 0, 0));
-        CreateCreature(creature[2], new Vector3(600, 0, 0));
+        for (int i = 0; i < creature.Count; i++)
+        {
+            CreateCreature(creature[i]);
+        }
+
         creature[0].hp = 10;
         creature[1].hp = 8;
         creature[2].hp = 12;
     }
 
-
-    public void CreateCreature(Creature creatureClass, Vector3 position)
+    public void CreateCreature(Creature creatureClass)
     {
-        PlayerDelegate(creatureClass, position);   //觸發event -->委派contorller LetViewCreatePrefab()
+        var creatureModeArray = creatureClass.mode;
+        CreatePrefab_Delegate(creatureClass);   //觸發-->委派contorller LetViewCreatePrefab()
+        TellViewToCloseWhichButton(creatureModeArray);
     }
 
     public string Talk(Creature creatureClass)

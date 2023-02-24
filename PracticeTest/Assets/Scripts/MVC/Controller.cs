@@ -8,21 +8,22 @@ public class Controller : MonoBehaviour
 {
     [SerializeField] private ModelController modelController;
     [SerializeField] private ButtonView buttonView;
+    [SerializeField] private PanelComponent panelComponent;
 
     private void Awake()
     {
-        modelController.PlayerDelegate += LetViewCreatePrefab;  //建立Prefab的委派event
-        buttonView.talk_Delegate += talk;  //建立Prefab的委派event
-        buttonView.Hurt_Delegate += Hurt;  
-        buttonView.Attack_Delegate += Attack;  
-        buttonView.Conversaction_Delegate += Conversaction;  
+        modelController.CreatePrefab_Delegate = (Creature creatureClass) => { buttonView.CreatePrefab(creatureClass); };  //建立Prefab
+        modelController.TellViewToCloseWhichButton = (bool[] ButtonNum) => { panelComponent.CloseButton(ButtonNum); };  //關閉Button
+
+        modelController.Init();
+       
+        //buttonView.talk_Delegate += talk;
+        //buttonView.Hurt_Delegate += Hurt;
+        //buttonView.Attack_Delegate += Attack;
+        //buttonView.Conversaction_Delegate += Conversaction;
     }
 
-    public void LetViewCreatePrefab(Creature creatureClass, Vector3 position)
-    {
-        buttonView.CreatePrefab(creatureClass, position);
-    }
-
+    #region CreatureMode
     public void talk(Creature creatureClass)
     {
         buttonView.Output(modelController.Talk(creatureClass));
@@ -39,4 +40,6 @@ public class Controller : MonoBehaviour
     {
         buttonView.Output(modelController.Conversaction(creatureClass));
     }
+
+    #endregion
 }

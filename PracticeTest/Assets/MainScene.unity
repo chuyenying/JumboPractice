@@ -1748,8 +1748,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObjectPrefabPanel: {fileID: 2119706920334934641, guid: 76ed8043abc1d554dad5c0118361b14e,
     type: 3}
-  PrefabPanel: []
   Canvas: {fileID: 247592315}
+  position: {x: -1000, y: 0, z: 0}
+  Interval: {x: 600, y: 0, z: 0}
 --- !u!4 &1024134996
 Transform:
   m_ObjectHideFlags: 0
@@ -2662,6 +2663,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modelController: {fileID: 157043289}
   buttonView: {fileID: 1024134995}
+  panelComponent: {fileID: 7256291868155008913, guid: 76ed8043abc1d554dad5c0118361b14e,
+    type: 3}
 --- !u!4 &1683191155
 Transform:
   m_ObjectHideFlags: 0
