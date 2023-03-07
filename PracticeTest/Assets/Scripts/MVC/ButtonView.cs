@@ -8,19 +8,13 @@ public class ButtonView : MonoBehaviour
 {
 
     [SerializeField] private GameObject GameObjectPrefabPanel;  //Prefab
-    [SerializeField] private List<GameObject> GameObjectPrefabPanelList;  //Prefab
+
     [SerializeField] private GameObject Canvas;
+
     [SerializeField] private Vector3 position;
     [SerializeField] private Vector3 Interval;
 
-    //public delegate void TalkToController(Creature creatureClass);
-    //public event TalkToController talk_Delegate;
-
-    //public event TalkToController Hurt_Delegate;
-
-    //public event TalkToController Attack_Delegate;
-
-    //public event TalkToController Conversaction_Delegate;
+    public List<PanelComponent> panelComponent;
 
     public Action CloseButton;
 
@@ -28,14 +22,19 @@ public class ButtonView : MonoBehaviour
     {
         var PrefabPanel_clone = Instantiate(GameObjectPrefabPanel); //生成prefab
 
+        panelComponent.Add(PrefabPanel_clone.GetComponent<PanelComponent>());
+
         PrefabPanel_clone.transform.SetParent(Canvas.transform);
         PrefabPanel_clone.transform.localPosition = position;
         position += Interval;
-        GameObjectPrefabPanelList.Add(PrefabPanel_clone);
+
+        panelComponent[panelComponent.Count - 1].PrefabIndex = panelComponent.Count - 1;
     }
 
     public void Output(string DebugLog_View)
     {
         Debug.Log(DebugLog_View);
     }
+
+
 }

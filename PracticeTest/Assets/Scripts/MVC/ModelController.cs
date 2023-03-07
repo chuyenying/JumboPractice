@@ -7,14 +7,14 @@ public class ModelController : MonoBehaviour
 {
     [SerializeField] private List<Creature> creature;
 
-    public Action<Creature> CreatePrefab_Delegate;
+    public Action<Creature, int> CreatePrefab_Delegate;
     public Action<bool[]> TellViewToCloseWhichButton;
 
     public void Init()
     {
         for (int i = 0; i < creature.Count; i++)
         {
-            CreateCreature(creature[i]);
+            CreateCreature(creature[i], i);
         }
 
         creature[0].hp = 10;
@@ -22,10 +22,10 @@ public class ModelController : MonoBehaviour
         creature[2].hp = 12;
     }
 
-    public void CreateCreature(Creature creatureClass)
+    public void CreateCreature(Creature creatureClass , int PrefabIndex)
     {
         var creatureModeArray = creatureClass.mode;
-        CreatePrefab_Delegate(creatureClass);   //觸發-->委派contorller LetViewCreatePrefab()
+        CreatePrefab_Delegate(creatureClass, PrefabIndex);   //觸發-->委派contorller LetViewCreatePrefab()
         TellViewToCloseWhichButton(creatureModeArray);
     }
 

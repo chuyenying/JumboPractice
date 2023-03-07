@@ -531,6 +531,7 @@ MonoBehaviour:
   - {fileID: 2119706920375818907}
   - {fileID: 2119706919895309146}
   - {fileID: 2119706919827541045}
+  PrefabGameobject: {fileID: 2119706920334934641}
 --- !u!1 &2119706920345304210
 GameObject:
   m_ObjectHideFlags: 0

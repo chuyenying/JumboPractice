@@ -12,11 +12,15 @@ public class Controller : MonoBehaviour
 
     private void Awake()
     {
-        modelController.CreatePrefab_Delegate = (Creature creatureClass) => { buttonView.CreatePrefab(creatureClass); };  //建立Prefab
-        modelController.TellViewToCloseWhichButton = (bool[] ButtonNum) => { panelComponent.CloseButton(ButtonNum); };  //關閉Button
+        modelController.CreatePrefab_Delegate = (Creature creatureClass , int PrefabIndex) =>
+        {
+            buttonView.CreatePrefab(creatureClass);
+        };  //建立Prefab
+
+        modelController.TellViewToCloseWhichButton = (bool[] ButtonNum) => {  };  //關閉Button
 
         modelController.Init();
-       
+
         //buttonView.talk_Delegate += talk;
         //buttonView.Hurt_Delegate += Hurt;
         //buttonView.Attack_Delegate += Attack;

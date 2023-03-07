@@ -6,17 +6,19 @@ using UnityEngine.UI;
 
 public class PanelComponent : MonoBehaviour
 {
-    public Text PanelText;
-    public List<Button> buttons;
+    [SerializeField] public Text PanelText;
+    [SerializeField] public List<Button> buttons;
 
-    public delegate void TalkToController(Creature creatureClass);
-    public event TalkToController talk_Delegate;
+    private int prefabIndex;
 
-    public event TalkToController Hurt_Delegate;
+    //public delegate void TalkToController(Creature creatureClass);
+    //public event TalkToController talk_Delegate;
 
-    public event TalkToController Attack_Delegate;
+    //public event TalkToController Hurt_Delegate;
 
-    public event TalkToController Conversaction_Delegate;
+    //public event TalkToController Attack_Delegate;
+
+    //public event TalkToController Conversaction_Delegate;
 
     public Action closeButton;
 
@@ -28,8 +30,9 @@ public class PanelComponent : MonoBehaviour
         //buttons[3].onClick.AddListener(() => Conversaction_Delegate());
     }
 
-    public void CloseButton(bool[] buttonNum)
+    public int PrefabIndex
     {
-
+        get { return PrefabIndex; }
+        set { PrefabIndex = value; }
     }
 }
