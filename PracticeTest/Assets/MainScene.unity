@@ -1749,7 +1749,7 @@ MonoBehaviour:
   GameObjectPrefabPanel: {fileID: 2119706920334934641, guid: 76ed8043abc1d554dad5c0118361b14e,
     type: 3}
   Canvas: {fileID: 247592315}
-  position: {x: -1000, y: 0, z: 0}
+  position: {x: -600, y: 0, z: 0}
   Interval: {x: 600, y: 0, z: 0}
 --- !u!4 &1024134996
 Transform:

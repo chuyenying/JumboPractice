@@ -7,31 +7,29 @@ public class ModelController : MonoBehaviour
 {
     [SerializeField] private List<Creature> creature;
 
-    public Action<Creature, int> CreatePrefab_Delegate;
-    public Action<bool[]> TellViewToCloseWhichButton;
+    public Action<Creature> CreatePrefab_Action;
 
     public void Init()
     {
-        for (int i = 0; i < creature.Count; i++)
-        {
-            CreateCreature(creature[i], i);
-        }
-
         creature[0].hp = 10;
         creature[1].hp = 8;
         creature[2].hp = 12;
+
+        for (int i = 0; i < creature.Count; i++)
+        {
+            CreateCreature(creature[i]);
+        }
+
     }
 
-    public void CreateCreature(Creature creatureClass , int PrefabIndex)
+    public void CreateCreature(Creature creatureClass)
     {
-        var creatureModeArray = creatureClass.mode;
-        CreatePrefab_Delegate(creatureClass, PrefabIndex);   //觸發-->委派contorller LetViewCreatePrefab()
-        TellViewToCloseWhichButton(creatureModeArray);
+        CreatePrefab_Action?.Invoke(creatureClass);   //觸發-->委派contorller LetViewCreatePrefab()
     }
 
-    public string Talk(Creature creatureClass)
+    public string Talk(int CreatureType)
     {
-        return $"我是{creatureClass.name} 我有{creatureClass.hp}點HP";
+        return $"我是{creature[CreatureType].name} 我有{creature[CreatureType].hp}點HP";
     }
 
 

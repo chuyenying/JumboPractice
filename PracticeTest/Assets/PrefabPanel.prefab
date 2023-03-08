@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2119706919827541046
 RectTransform:
   m_ObjectHideFlags: 0
@@ -531,7 +531,7 @@ MonoBehaviour:
   - {fileID: 2119706920375818907}
   - {fileID: 2119706919895309146}
   - {fileID: 2119706919827541045}
-  PrefabGameobject: {fileID: 2119706920334934641}
+  prefabIndex: 0
 --- !u!1 &2119706920345304210
 GameObject:
   m_ObjectHideFlags: 0
