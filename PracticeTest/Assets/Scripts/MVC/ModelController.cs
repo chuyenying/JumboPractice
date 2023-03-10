@@ -5,6 +5,15 @@ using UnityEngine;
 
 public class ModelController : MonoBehaviour
 {
+    public enum CreatureEnum
+    {
+        Player = 0,
+        People = 1,
+        Monster = 2
+    }
+
+    [SerializeField] public CreatureEnum creatureEnum;
+
     [SerializeField] private List<Creature> creature;
 
     public Action<Creature> CreatePrefab_Action;
@@ -17,14 +26,9 @@ public class ModelController : MonoBehaviour
 
         for (int i = 0; i < creature.Count; i++)
         {
-            CreateCreature(creature[i]);
+            CreatePrefab_Action?.Invoke(creature[i]);  //觸發-->委派contorller LetViewCreatePrefab()
         }
 
-    }
-
-    public void CreateCreature(Creature creatureClass)
-    {
-        CreatePrefab_Action?.Invoke(creatureClass);   //觸發-->委派contorller LetViewCreatePrefab()
     }
 
     public string Talk(int CreatureType)

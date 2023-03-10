@@ -16,7 +16,11 @@ public class Controller : MonoBehaviour
             buttonView.CreatePrefab(creatureClass); //三個class，則呼叫三次
         };  //建立Prefab
 
-        buttonView.Talk_Controller = (int _PrefabIndex) => { buttonView.Output(modelController.Talk(_PrefabIndex)); };
+        buttonView.Talk_Controller = (int _PrefabIndex) =>
+        {
+            buttonView.Output(modelController.Talk(_PrefabIndex));
+        };
+
         modelController.Init();
     }
 }

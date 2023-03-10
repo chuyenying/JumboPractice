@@ -16,29 +16,33 @@ public class ButtonView : MonoBehaviour
 
 
 
-    private PanelComponent panelComponent;
+    [SerializeField] private List<PanelComponent> panelComponent = new List<PanelComponent>();
 
     public Action<int> Talk_Controller;
 
     public void CreatePrefab(Creature creatureClass) //創建Panel跟排版
     {
-        var PrefabPanel_clone = Instantiate(GameObjectPrefabPanel); //生成prefab
 
-        panelComponent = (PrefabPanel_clone.GetComponent<PanelComponent>());   // 抓取PanelCompoent元件並新增到List裡
-        
-        panelComponent.PrefabIndex = creatureClass.creature;
-        panelComponent.SetTitleName(creatureClass.name);
-        panelComponent.CloseButton(panelComponent.PrefabIndex, creatureClass.mode);
+        panelComponent.Add(Instantiate(GameObjectPrefabPanel, position, new Quaternion(0f, 0f, 0f, 0f), Canvas.transform).GetComponent<PanelComponent>());   // 抓取PanelCompoent元件並新增到List裡
 
-        panelComponent.Talk_Action = (PanelComponent _panelComponent) => { Talk_Controller(_panelComponent.PrefabIndex); };
+        var _prefabIndex = creatureClass.creature;
 
-        //**************** Prefab排版 ***************
+        panelComponent[_prefabIndex].PrefabIndex = _prefabIndex;
+        panelComponent[_prefabIndex].SetTitleName(creatureClass.name);
 
-        PrefabPanel_clone.transform.SetParent(Canvas.transform);
-        PrefabPanel_clone.transform.localPosition = position;
+        for (int i = 0; i < panelComponent[_prefabIndex].buttons.Count; i++)
+        {
+            if (creatureClass.mode[i])
+            {
+                panelComponent[_prefabIndex].buttons[i].onClick.AddListener(() => { Talk_Controller(panelComponent[_prefabIndex].PrefabIndex); });
+            }
+            else
+            {
+                panelComponent[_prefabIndex].buttons[i].gameObject.SetActive(false);
+            }
+        }
+
         position += Interval;
-
-        //********************************************
     }
 
     public void Output(string DebugLog_View)

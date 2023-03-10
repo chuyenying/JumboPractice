@@ -16,4 +16,5 @@ MonoBehaviour:
   hp: 8
   attack: 1
   creature: 1
+  creatureEnum: 1
   mode: 01010001

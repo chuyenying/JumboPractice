@@ -9,11 +9,9 @@ public class PanelComponent : MonoBehaviour
     [SerializeField] public Text PanelText;
     [SerializeField] public List<Button> buttons;
 
-    [SerializeField] private int prefabIndex;
+    private int prefabIndex;
 
     private bool IsSetPrefabIndex = false;
-
-    public Action<PanelComponent> Talk_Action;
 
     public int PrefabIndex
     {
@@ -32,7 +30,8 @@ public class PanelComponent : MonoBehaviour
         }
     }
 
-    public void CloseButton(int View_PrefabIndex, bool[] Mode)
+    /*
+    public void InitButton(int View_PrefabIndex, bool[] Mode)
     {
         if (this.PrefabIndex == View_PrefabIndex)
         {
@@ -40,16 +39,17 @@ public class PanelComponent : MonoBehaviour
             {
                 if (Mode[i])
                 {
-                    this.buttons[i].onClick.AddListener(() => { Talk_Action(this); });
+                    buttons[i].onClick.AddListener(() => { Talk_Action(this.PrefabIndex); });
                 }
                 else
                 {
-                    this.buttons[i].gameObject.SetActive(false);
+                    buttons[i].gameObject.SetActive(false);
                 }
             }
         }
     }
-
+    */
+    
     public void SetTitleName(string name)
     {
         this.PanelText.text = name;
