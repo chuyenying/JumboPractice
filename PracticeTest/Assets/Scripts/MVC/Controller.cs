@@ -9,28 +9,18 @@ public class Controller : MonoBehaviour
     [SerializeField] private ModelController modelController;
     [SerializeField] private ButtonView buttonView;
 
-    private void Start()
+    private void Awake()
     {
-        buttonView.talk_Controller += Talk;
-        buttonView.Hurt_Controller += Hurt;
-        buttonView.Attack_Controller += Attack;
-        buttonView.Conversaction_Controller += Conversaction;
-    }
+        modelController.CreatePrefab_Action = (Creature creatureClass) =>
+        {
+            buttonView.CreatePrefab(creatureClass); //三個class，則呼叫三次
+        };  //建立Prefab
 
-    public void Talk(int creature)
-    {
-        buttonView.Output(modelController.Talk(creature));
-    }
-    public void Hurt(int creature)
-    {
-        buttonView.Output(modelController.Hurt(creature));
-    }
-    public void Attack(int creature)
-    {
-        buttonView.Output(modelController.Attack(creature));
-    }
-    public void Conversaction(int creature)
-    {
-        buttonView.Output(modelController.Conversaction(creature));
+        buttonView.Talk_Controller = (int _PrefabIndex) =>
+        {
+            buttonView.Output(modelController.Talk(_PrefabIndex));
+        };
+
+        modelController.Init();
     }
 }

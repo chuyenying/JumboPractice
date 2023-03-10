@@ -15,3 +15,6 @@ MonoBehaviour:
   name: "\u73A9\u5BB6"
   hp: 10
   attack: 2
+  creature: 0
+  creatureEnum: 0
+  mode: 01010101

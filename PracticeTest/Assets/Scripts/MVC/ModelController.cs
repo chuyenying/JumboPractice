@@ -1,75 +1,70 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ModelController : MonoBehaviour
 {
-    [SerializeField] private Creature Player;
-    [SerializeField] private Creature People;
-    [SerializeField] private Creature Monster;
-
-    private void Awake()
+    public enum CreatureEnum
     {
-        Player.hp = 10;
-        People.hp = 8;
-        Monster.hp = 12;
+        Player = 0,
+        People = 1,
+        Monster = 2
     }
 
-    public string Talk(int creature)
+    [SerializeField] public CreatureEnum creatureEnum;
+
+    [SerializeField] private List<Creature> creature;
+
+    public Action<Creature> CreatePrefab_Action;
+
+    public void Init()
     {
-        if (creature == 0)
+        creature[0].hp = 10;
+        creature[1].hp = 8;
+        creature[2].hp = 12;
+
+        for (int i = 0; i < creature.Count; i++)
         {
-            return $"我是{Player.name} 我有{Player.hp}點HP";
-        }
-        else if(creature == 1)
-        {
-            return $"我是{People.name} 我有{People.hp}點HP";
-        }
-        {
-            return $"我是{Monster.name} 我有{Monster.hp}點HP";
+            CreatePrefab_Action?.Invoke(creature[i]);  //觸發-->委派contorller LetViewCreatePrefab()
         }
 
     }
-    public string Hurt(int creature)
+
+    public string Talk(int CreatureType)
     {
-        if (creature == 0)
+        return $"我是{creature[CreatureType].name} 我有{creature[CreatureType].hp}點HP";
+    }
+
+
+    public string Hurt(Creature creatureClass)
+    {
+        creatureClass.hp = creatureClass.hp - creatureClass.attack;
+        return ($"我是{creatureClass.name} 我受{creatureClass.attack}傷害! 剩下{creatureClass.hp}點");
+    }
+
+    public string Attack(Creature creatureClass)
+    {
+        if (creatureClass.creature == 0)
         {
-            Player.hp = Player.hp - Player.attack;
-            return ($"我是{Player.name} 我受{Player.attack}傷害! 剩下{Player.hp}點");
-        }
-        else if(creature==1)
-        {
-            People.hp = People.hp - People.attack;
-            return ($"我是{People.name} 我受{People.attack}傷害! 剩下{People.hp}點");
+            creature[2].hp = creature[2].hp - creatureClass.attack;
+            return ($"{creatureClass.name}對{creature[2].name}發起攻擊! 造成了{creatureClass.attack}點傷害!{creature[2].name}現在剩下{creature[2].hp}點HP");
         }
         else
         {
-            Monster.hp = Monster.hp - Monster.attack;
-            return ($"我是{Monster.name} 我受{Monster.attack}傷害! 剩下{Monster.hp}點");
+            creature[0].hp = creature[0].hp - creatureClass.attack;
+            return ($"{creatureClass.name}對{creature[0].name}發起攻擊! 造成了{creatureClass.attack}點傷害!{creature[0].name}現在剩下{creature[0].hp}點HP");
         }
     }
-    public string Attack(int creature)
+    public string Conversaction(Creature creatureClass)
     {
-        if (creature == 0)
+        if (creatureClass.creature == 0)
         {
-            Monster.hp = Monster.hp - Player.attack;
-            return ($"{Player.name}對{Monster.name}發起攻擊! 造成了{Player.attack}點傷害!{Monster.name}現在剩下{Monster.hp}點HP");
+            return ($"那邊的{creature[1].name} 目前血量剩下{creature[1].hp}點HP");
         }
         else
         {
-            Player.hp = Player.hp - Monster.attack;
-            return ($"{Monster.name}對{Player.name}發起攻擊! 造成了{Monster.attack}點傷害!{Player.name}現在剩下{Player.hp}點HP");
-        }
-    }
-    public string Conversaction(int creature)
-    {
-        if (creature == 0)
-        {
-            return ($"那邊的{People.name} 目前血量剩下{People.hp}點HP");
-        }
-        else
-        {
-            return ($"那邊的{Player.name} 目前血量剩下{Player.hp}點HP");
+            return ($"那邊的{creature[0].name} 目前血量剩下{creature[0].hp}點HP");
         }
     }
 
