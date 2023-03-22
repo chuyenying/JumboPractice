@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Monster
   m_EditorClassIdentifier: 
   name: "\u602A\u7269"
-  hp: 12
+  hp: 10
   attack: 3
   creature: 2
-  creatureEnum: 2
-  mode: 01010100
+  Talk: 1
+  Hurt: 1
+  Attack: 1
+  Conversaction: 1
+  ShowNicePerson_Toggle: 0

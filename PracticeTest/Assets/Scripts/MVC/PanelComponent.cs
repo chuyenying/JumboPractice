@@ -6,8 +6,9 @@ using UnityEngine.UI;
 
 public class PanelComponent : MonoBehaviour
 {
-    [SerializeField] public Text PanelText;
-    [SerializeField] public List<Button> buttons;
+    public Text PanelText;
+    public List<Button> buttons;
+    public Toggle toggle;
 
     private int prefabIndex;
 
@@ -30,30 +31,15 @@ public class PanelComponent : MonoBehaviour
         }
     }
 
-    /*
-    public void InitButton(int View_PrefabIndex, bool[] Mode)
-    {
-        if (this.PrefabIndex == View_PrefabIndex)
-        {
-            for (int i = 0; i < Mode.Length; i++)
-            {
-                if (Mode[i])
-                {
-                    buttons[i].onClick.AddListener(() => { Talk_Action(this.PrefabIndex); });
-                }
-                else
-                {
-                    buttons[i].gameObject.SetActive(false);
-                }
-            }
-        }
-    }
-    */
-    
+
     public void SetTitleName(string name)
     {
         this.PanelText.text = name;
         this.gameObject.name = name;
     }
 
+    public void CloseUI(GameObject PrefabUI)
+    {
+        PrefabUI.SetActive(false);
+    }
 }
