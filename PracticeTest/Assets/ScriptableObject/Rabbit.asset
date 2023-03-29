@@ -16,8 +16,8 @@ MonoBehaviour:
   hp: 3
   attack: 1
   creature: 3
-  Talk: 1
-  Hurt: 0
+  Talk: 0
+  Hurt: 1
   Attack: 1
-  Conversaction: 1
-  ShowNicePerson_Toggle: 0
+  Conversaction: 0
+  ShowNicePerson_Toggle: 1

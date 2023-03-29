@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: People
   m_EditorClassIdentifier: 
   name: "\u6751\u6C11"
-  hp: 6
+  hp: 8
   attack: 1
   creature: 1
   Talk: 1

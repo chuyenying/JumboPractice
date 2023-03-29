@@ -21,9 +21,9 @@ public class Controller : MonoBehaviour
             buttonView.Output(modelController.Talk(_PrefabIndex));
         };
 
-        buttonView.Attack_Controller = (int _PrefabIndex , bool IsOnNicePerson) =>
+        buttonView.Attack_Controller = (int MainAttacker, int WhoisAttacked) =>
         {
-            buttonView.Output(modelController.Attack(_PrefabIndex , IsOnNicePerson));
+            buttonView.Output(modelController.Attack(MainAttacker, WhoisAttacked));
         };
 
         modelController.Init();
