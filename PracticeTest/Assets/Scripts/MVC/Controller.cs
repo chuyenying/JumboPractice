@@ -16,9 +16,9 @@ public class Controller : MonoBehaviour
             buttonView.CreatePrefab(creatureClass); //三個class，則呼叫三次
         };  //建立Prefab
 
-        buttonView.Talk_Controller = (int _PrefabIndex) =>
+        buttonView.Talk_Controller = (int CreatureType) =>
         {
-            buttonView.Output(modelController.Talk(_PrefabIndex));
+            buttonView.Output(modelController.Talk(CreatureType));
         };
 
         buttonView.Attack_Controller = (int MainAttacker, int WhoisAttacked) =>
@@ -26,6 +26,9 @@ public class Controller : MonoBehaviour
             buttonView.Output(modelController.Attack(MainAttacker, WhoisAttacked));
         };
 
+        buttonView.ResetAction = () => { modelController.ResetGame(); };
+
+        buttonView.Init();
         modelController.Init();
     }
 }

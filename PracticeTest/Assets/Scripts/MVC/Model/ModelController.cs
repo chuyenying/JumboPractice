@@ -2,17 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ModelController : MonoBehaviour
 {
-    public enum CreatureEnum
-    {
-        Player = 0,
-        People = 1,
-        Monster = 2
-    };
-
-
 
     [SerializeField] private List<Creature> creature;
 
@@ -31,7 +24,6 @@ public class ModelController : MonoBehaviour
         return $"我是{creature[CreatureType].name} 我有{creature[CreatureType].hp}點HP";
     }
 
-
     public string Hurt(Creature creatureClass)
     {
         creatureClass.hp = creatureClass.hp - creatureClass.attack;
@@ -46,7 +38,7 @@ public class ModelController : MonoBehaviour
 
     public string Conversaction(Creature creatureClass)
     {
-        if (creatureClass.creature == 0)
+        if ((int)creatureClass.creature == 0)
         {
             return ($"那邊的{creature[1].name} 目前血量剩下{creature[1].hp}點HP");
         }
@@ -54,5 +46,10 @@ public class ModelController : MonoBehaviour
         {
             return ($"那邊的{creature[0].name} 目前血量剩下{creature[0].hp}點HP");
         }
+    }
+
+    public void ResetGame()
+    {
+        SceneManager.LoadScene("MainScene");
     }
 }

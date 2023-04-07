@@ -22,6 +22,8 @@ public class PanelComponent : MonoBehaviour
 
     private bool IsSetPrefabIndex = false;
 
+    #region Set、Get
+
     public int PrefabIndex
     {
         get
@@ -47,6 +49,7 @@ public class PanelComponent : MonoBehaviour
         }
     }
 
+    #endregion
 
     public void SetTitleName(string name)
     {
@@ -54,6 +57,9 @@ public class PanelComponent : MonoBehaviour
         this.gameObject.name = name;
     }
 
+    #region CloseModeButton
+
+    
     public void CloseTalkButton()
     {
         buttons[(int)ButtonMode.Talk].gameObject.SetActive(false);
@@ -74,15 +80,17 @@ public class PanelComponent : MonoBehaviour
         buttons[(int)ButtonMode.Conversaction].gameObject.SetActive(false);
     }
 
-    /// <summary>
-    /// 可以選擇攻擊誰的Button
-    /// </summary>
     public void Close_WhoIsAttackedButton()
     {
         buttons[(int)ButtonMode.WhoisAttacked].gameObject.SetActive(false);
     }
+    #endregion
+
+    #region OpenModeButton
+
     public void Open_WhoIsAttackedButton()
     {
         buttons[(int)ButtonMode.WhoisAttacked].gameObject.SetActive(true);
     }
+    #endregion
 }

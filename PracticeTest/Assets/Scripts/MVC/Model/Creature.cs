@@ -9,7 +9,15 @@ public class Creature
     public string name;
     public int hp;
     public int attack;
-    public int creature;
+
+    public enum Creature_Enum
+    {
+        Player,
+        People,
+        Monster
+    };
+
+    public Creature_Enum creature;
 
     [Header("Mode")]
     public bool Talk;
@@ -17,7 +25,7 @@ public class Creature
 
     public bool Attack;
     public bool Conversaction;
-    
+
 }
 
 
